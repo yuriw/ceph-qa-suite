@@ -5,7 +5,7 @@ overrides:
   ceph:
     valgrind:
       mon: [--tool=memcheck, --leak-check=full, --show-reachable=yes]
-      osd: [--tool=memcheck]
+      osd: [--tool=memcheck, --leak-check=full, --show-reachable=yes]
       mds: [--tool=memcheck]
   ceph-fuse:
     client.0:
