@@ -1,0 +1,15 @@
+tasks:
+- install:
+- ceph:
+    conf:
+      mds:
+        mds bal frag: 1
+        mds bal split bits: 2
+        mds bal split size: 256
+        mds bal merge size: 32
+- ceph-fuse:
+- workunit:
+    clients:
+      client.0:
+        - misc/dirfrag.sh
+
