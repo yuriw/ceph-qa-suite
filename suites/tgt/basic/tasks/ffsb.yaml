@@ -3,6 +3,7 @@ tasks:
 - chef:
 - ceph:
 - tgt:
+    image_size: 20480
 - iscsi:
 - workunit:
     clients:
