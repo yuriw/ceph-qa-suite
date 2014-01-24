@@ -1,0 +1,7 @@
+tasks:
+- ceph.restart:
+    daemons: [mon.a]
+    intermediate-wait-for-mon-quorum: [a, b]
+    wait-for-healthy: false
+    wait-for-osds-up: true
+

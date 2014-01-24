@@ -1,0 +1,10 @@
+tasks:
+- install.upgrade:
+    mon.a:
+      branch: last
+- ceph.restart:
+    daemons: [mon.a]
+    wait-for-healthy: false
+    wait-for-osds-up: true
+- ceph.wait_for_mon_quorum: [b, c]
+
