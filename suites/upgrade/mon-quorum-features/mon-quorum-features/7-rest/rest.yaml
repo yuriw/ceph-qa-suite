@@ -6,7 +6,7 @@ overrides:
     - had wrong cluster addr
   install:
     ceph:
-      branch: master
+      branch: wip-7215-quorum-features
 tasks:
 - install.upgrade:
     all:
