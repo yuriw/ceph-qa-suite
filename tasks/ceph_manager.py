@@ -132,6 +132,11 @@ class Thrasher:
                 (exp_remote,) = self.ceph_manager.ctx.cluster.only('osd.{o}'.format(o=exp_osd)).remotes.iterkeys()
             prefix = "sudo ceph_objectstore_tool --data-path {fpath} --journal-path {jpath} ".format(fpath=FSPATH, jpath=JPATH)
             cmd = (prefix + "--op list-pgs").format(id=exp_osd)
+            if 'keyvaluestore_backend' in self.ceph_manager.ctx.ceph.conf['osd']:
+                cmd = cmd + ' --type keyvaluestore-dev'
+            self.log('=================== Command is ====================')
+            self.log(cmd)
+            self.log('===================================================')
             proc = exp_remote.run(args=cmd, wait=True, check_status=True, stdout=StringIO())
             if proc.exitstatus:
                 raise Exception("ceph_objectstore_tool: exp list-pgs failure with status {ret}".format(ret=proc.exitstatus))
