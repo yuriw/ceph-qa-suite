@@ -1,0 +1,6 @@
+tasks:
+- install:
+   branch: dumpling
+- print: "**** done dumpling"
+- ceph:
+   fs: xfs
